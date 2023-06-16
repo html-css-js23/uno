@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Uno Game</title>
+  <style>
+    /* Add some basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    .card {
+      width: 80px;
+      height: 120px;
+      background-color: #ccc;
+      border-radius: 5px;
+      display: inline-block;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Uno Game</h1>
+  
+  <!-- Main Menu -->
+  <div id="main-menu">
+    <h2>Main Menu</h2>
+    <button onclick="startGame()">Start Game</button>
+  </div>
+  
+  <!-- Game Area -->
+  <div id="game-area" style="display: none;">
+    <h2>Game Area</h2>
+    
+    <!-- Player Cards -->
+    <h3>Your Cards</h3>
+    <div id="player-cards"></div>
+    
+    <!-- NPC Players -->
+    <h3>NPC Players</h3>
+    <div id="npc-players"></div>
+  </div>
+
+  <script>
+    function startGame() {
+      // Show the game area and hide the main menu
+      document.getElementById("main-menu").style.display = "none";
+      document.getElementById("game-area").style.display = "block";
+      
+      // Generate player's cards
+      var playerCards = generatePlayerCards();
+      displayPlayerCards(playerCards);
+      
+      // Generate NPC players
+      var npcPlayers = generateNPCPlayers();
+      displayNPCPlayers(npcPlayers);
+    }
+    
+    function generatePlayerCards() {
+      // Generate and return an array of player's cards
+      var playerCards = [];
+      // Add your card generation logic here
+      return playerCards;
+    }
+    
+    function generateNPCPlayers() {
+      // Generate and return an array of NPC players
+      var npcPlayers = [];
+      // Add NPC player generation logic here
+      return npcPlayers;
+    }
+    
+    function displayPlayerCards(cards) {
+      // Display the player's cards in the UI
+      var playerCardsDiv = document.getElementById("player-cards");
+      for (var i = 0; i < cards.length; i++) {
+        var cardDiv = document.createElement("div");
+        cardDiv.className = "card";
+        // Customize card display with relevant details
+        cardDiv.innerHTML = cards[i];
+        playerCardsDiv.appendChild(cardDiv);
+      }
+    }
+    
+    function displayNPCPlayers(npcPlayers) {
+      // Display the NPC players in the UI
+      var npcPlayersDiv = document.getElementById("npc-players");
+      for (var i = 0; i < npcPlayers.length; i++) {
+        var npcPlayerDiv = document.createElement("div");
+        npcPlayerDiv.innerHTML = "NPC " + (i + 1);
+        npcPlayersDiv.appendChild(npcPlayerDiv);
+      }
+    }
+  </script>
+</body>
+</html>
